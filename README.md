@@ -2,7 +2,7 @@
 
 
 - AUTH
-    - 회원가입 [V]
+      [V] 회원가입 
     - 로그인 [V]
     - JWT 인증 [V]
     - Refresh, Access Token [V]
