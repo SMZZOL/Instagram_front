@@ -1,9 +1,9 @@
 ## Todo List
 
 
-- AUTH
-      [V] 회원가입 
+- AUTH 
     - 로그인 [V]
+    - 회원가입 [V]
     - JWT 인증 [V]
     - Refresh, Access Token [V]
     - 비번찾기[X]
