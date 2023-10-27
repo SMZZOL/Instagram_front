@@ -1,0 +1,911 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.Logo {
+    max-height: 100%;
+    height: auto;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    background-color: #efefef;
+}
+
+#root {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.App {
+    width: 100%;
+    max-width: 30%;
+    min-width: 300px;
+    height: 100vh;
+    max-height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px solid #333;
+    box-shadow: 0px 0px 15px gray;
+    background-color: black;
+}
+
+.FR {
+    float: right;
+    margin-right: 0.3rem;
+    margin-top: 0.2rem;
+}
+
+.FL {
+    float: left;
+    margin-right: 0.5rem;
+    margin-top: 0.2rem;
+}
+
+.Banner {
+    color: white;
+    max-height: 2rem;
+}
+
+.StoryList {
+    background-color: black;
+    width: 100%;
+    color: white;
+    display: flex;
+    flex-wrap: nowrap;
+    /* 자식 요소들이 넘칠 때 줄 바꿈 방지 */
+    overflow-x: auto;
+    /* 스크롤 표시 */
+    align-items: center;
+    height: 100%;
+    padding: 2px;
+    margin-bottom: 0.4rem;
+}
+
+.Story {
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+
+.Story_username {
+    font-size: 0.6rem;
+}
+
+.Story_img {
+    width: 3.0rem;
+    height: 3.0rem;
+    border-radius: 50%;
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
+.Story_bar>div {
+    margin-right: 1.5rem;
+    /* 간격 설정 (원하는 간격으로 조절) */
+    white-space: nowrap;
+    /* 텍스트가 넘칠 때 줄 바꿈 방지 */
+}
+
+.Story_bar::-webkit-scrollbar {
+    width: 4px;
+    /* 스크롤바의 너비 조절 (얇게) */
+    height: 2px;
+    /* 스크롤바의 너비 조절 (얇게) */
+}
+
+.Story_bar::-webkit-scrollbar-thumb {
+    background-color: lightgray;
+    /* 스크롤바 색상 변경 */
+    border-radius: 4px;
+    /* 스크롤바 코너를 둥글게 만듦 */
+}
+
+.Main_Top {
+    width: 100%;
+    background-color: black;
+    display: grid;
+}
+
+.Footer {
+    width: 100%;
+    background-color: black;
+    padding: 0.3rem;
+}
+
+.Footer table {
+    width: 100%;
+    border-collapse: collapse;
+    /* 테이블 셀 경계를 병합 */
+}
+
+.Footer td {
+    text-align: center;
+    /* 셀 내용 가운데 정렬 */
+    padding: 10px;
+    /* 셀 내부 여백 설정 (원하는 크기로 조절) */
+    color: #fff;
+}
+
+.text {
+    color: white;
+}
+
+.Main_Top h1 {
+    font-size: 1.5rem;
+}
+
+.Main_Top svg {
+    font-size: 2rem;
+}
+
+
+.Home {
+    width: 100%;
+    flex-grow: 1;
+    overflow-y: auto;
+    background-color: black;
+    position: relative;
+}
+
+.Home::-webkit-scrollbar {
+    width: 1px;
+    /* 스크롤바의 너비 조절 (얇게) */
+    height: 4px;
+    /* 스크롤바의 너비 조절 (얇게) */
+}
+
+.Home::-webkit-scrollbar-thumb {
+    background-color: black;
+    /* 스크롤바 색상 변경 */
+    border-radius: 4px;
+    /* 스크롤바 코너를 둥글게 만듦 */
+}
+
+.NewFeed,
+.FeedPage,
+.About,
+.Missing {
+    width: 100%;
+    flex-grow: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    background-color: #fff;
+}
+
+.feed {
+    padding-bottom: 1rem;
+}
+
+.Home .feed a {
+    text-decoration: none;
+}
+
+.Home .feed a,
+.Home .feed a:visited {
+    color: #000;
+}
+
+.feed:first-child {
+    margin-top: 0;
+}
+
+.feed:last-child {
+    border-bottom: none;
+}
+
+.feedDate {
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+.feedBody {
+    margin: 1rem 0;
+}
+
+.newFeedForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.newFeedForm label {
+    margin-top: 1rem;
+}
+
+.newFeedForm input[type='text'],
+.newFeedForm textarea {
+    font-family: 'Open Sans', sans-serif;
+    width: 100%;
+    min-height: 48px;
+    font-size: 1rem;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    margin-right: 0.25rem;
+    outline: none;
+}
+
+.newFeedForm textarea {
+    height: 100px;
+}
+
+.newFeedForm button {
+    margin-top: 1rem;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 10px;
+    padding: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.Missing h2,
+.FeedPage h2,
+.Missing p,
+.FeedPage p {
+    margin-bottom: 1rem;
+}
+
+.FeedPage button {
+    height: 48px;
+    min-width: 48px;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+.deleteButton {
+    background-color: red;
+}
+
+.editButton {
+    background-color: blue;
+}
+
+.statusMsg {
+    margin-top: 2rem;
+}
+
+@media only screen and (min-width: 610px) {
+    html {
+        font-size: 22px;
+    }
+
+    .Main_Top h1 {
+        font-size: 2rem;
+    }
+
+    .Nav {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .Nav ul {
+        text-align: right;
+    }
+
+    .Nav li:hover,
+    .Nav li:focus,
+    .Nav li:hover a,
+    .Nav li:focus a {
+        background-color: #eee;
+        color: #333;
+    }
+
+    .searchForm {
+        width: 50%;
+        padding: .5rem 0;
+    }
+
+    .searchForm input[type="text"] {
+        margin-left: 0.5rem;
+    }
+
+    .newFeedForm textarea {
+        height: 300px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+
+    .Main_Top svg {
+        font-size: 3rem;
+    }
+
+}
+
+
+/*                            게시물              */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.feed {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.feed-header {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+.username {
+    font-weight: bold;
+    font-size: 0.7rem;
+    color: white;
+}
+
+.feed-image {
+    width: 100%;
+    height: auto;
+}
+
+.feed-actions {
+    padding: 12px;
+}
+
+.like-button,
+.comment-button,
+.share-button {
+    margin-right: 16px;
+}
+
+.likes {
+    padding: 0 16px;
+    font-weight: bold;
+    font-size: 0.7rem;
+    color: white;
+}
+
+.caption {
+    padding: 8px 16px;
+    font-size: 0.7rem;
+    color: white;
+}
+
+.comments {
+    padding: 0 16px;
+    font-size: 0.7rem;
+    color: white;
+}
+
+.comment {
+    margin-bottom: 8px;
+    font-size: 0.7rem;
+    color: white;
+}
+
+.comment-author {
+    font-weight: bold;
+    margin-right: 4px;
+    color: white;
+}
+
+
+/* .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: blue;
+    margin: 15% auto;
+    padding: 20px;
+    width: 30%;
+    max-width: 30%;
+    position: relative;
+} */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 30%;
+    min-width: 300px;
+    height: 100vh;
+    max-height: 80%;
+    background-color: #fff;
+    border: 1px solid #333;
+    box-shadow: 0px 0px 15px gray;
+    position: relative;
+    text-align: center;
+
+}
+
+
+
+
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    ;
+    padding: 5px;
+    cursor: pointer;
+    z-index: 2;
+    /* 모달 내용 위에 나타나도록 함 */
+}
+
+/* .close:hover {
+    background-color: #ccc;
+  }
+   */
+
+#myProgress {
+    width: 96%;
+    margin: 2%;
+    background-color: grey;
+    border-radius: 10px;
+}
+
+#myBar {
+    width: 1%;
+    height: 5px;
+    background-color: lightgray;
+    border-radius: 10px;
+}
+
+.modal-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 50% auto;
+    /* 가로 중앙 정렬 */
+}
+
+.modal-content iframe {
+    width: 100%;
+    height: 80%;
+    display: block;
+    margin: 10% auto;
+    text-align: center;
+}
+
+/* Feed add. */
+.custom-file-button {
+    display: inline-block;
+    cursor: pointer;
+    background-color: black;
+    border: 2px solid gray;
+    border-radius: 5px;
+    position: relative;
+    user-select: none;
+    transition: background-color 0.3s, border 0.3s;
+    width: 100%;
+    /* 원하는 너비 */
+    height: 100%;
+    /* 원하는 높이 */
+}
+
+.custom-file-button:hover {
+    background-color: gray;
+    border-color: black;
+}
+
+.button-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: gray;
+    width: 100%;
+    height: 100%;
+}
+
+#file-input {
+    display: none;
+}
+
+.Buttondiv {
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.nextButton,
+.cancelButton,
+.prevButton,
+.submitButton {
+    color: rgb(10, 124, 255);
+    /* 글자 색상을 파란색으로 설정 */
+    font-size: 1rem;
+    cursor: pointer;
+    /* 커서 스타일을 포인터로 설정하여 버튼처럼 보이도록 함 */
+    /* 원하는 패딩을 설정하여 버튼 크기 조정 */
+    background-color: transparent;
+    /* 배경을 투명하게 설정 */
+    border: none;
+    /* 테두리 제거 */
+    font-weight: bold;
+    /* 글꼴을 두껍게 설정 */
+    margin: 0 30px;
+    /* 좌우 간격을 추가 */
+}
+
+.cancelButton {
+    color: rgb(255, 117, 117);
+}
+
+.nextButton:active,
+.prevButton:active,
+.cancelButton:active {
+    color: gray;
+    /* 클릭시 하늘색으로 변경 */
+}
+.feedImgsContainer {
+    width: 90%;
+    margin-left: 5%;
+    display: flex;
+    margin-bottom: 5%;
+}
+
+.feedImgs {
+    height: 40%;
+    max-width: 40%;
+}
+.feedTag{
+    width: 100%;
+    height: 100%;
+    color: white;
+    margin-left: 2%;
+    font-size: 0.7rem;
+}
+.feedTagselect{
+    width: 100%;
+    border-radius: 5px;
+
+}
+.tagdelbutton{
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    color: gray;
+    font-size: 0.8rem;
+    margin-bottom: auto;
+    margin-right: 0.2rem;
+    
+}
+.tagdelbutton:hover{
+    color: lightcoral;
+}
+
+.feedText {
+    width: 90%;
+    background-color: grey;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    height: 1.5rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.feedText::placeholder {
+    color: white;
+}
+
+/* 로그인 */
+
+.FormDiv {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.input-field {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: gray;
+    color: white;
+}
+
+.input-field::placeholder {
+    color: white;
+}
+
+.LoginLogo {
+    width: 80%;
+    margin-top: 25%;
+}
+
+.login-button {
+    width: 90%;
+    margin-top: 10%;
+    padding: 10px;
+    background-color: rgb(10, 124, 255);
+    border-radius: 10px;
+    color: white;
+}
+
+.AskDiv {
+    height: 10%;
+    color: white;
+    font-size: 0.7rem;
+}
+
+.register-button {
+    cursor: pointer;
+    /* 커서 스타일을 포인터로 설정하여 버튼처럼 보이도록 함 */
+    /* 원하는 패딩을 설정하여 버튼 크기 조정 */
+    background-color: transparent;
+    /* 배경을 투명하게 설정 */
+    border: none;
+    /* 테두리 제거 */
+    font-weight: bold;
+    color: rgb(10, 124, 255);
+    font-size: 0.7rem;
+}
+
+/* 글꼴을 두껍게 설정 */
+.forget-button {
+    cursor: pointer;
+    /* 커서 스타일을 포인터로 설정하여 버튼처럼 보이도록 함 */
+    /* 원하는 패딩을 설정하여 버튼 크기 조정 */
+    background-color: transparent;
+    /* 배경을 투명하게 설정 */
+    border: none;
+    /* 테두리 제거 */
+    font-weight: bold;
+    color: rgb(10, 124, 255);
+    font-size: 0.5rem;
+}
+
+/* 글꼴을 두껍게 설정 */
+.notice {
+    font-weight: bold;
+    color: rgb(10, 124, 255);
+    font-size: 0.6rem;
+    margin-top: 5%;
+}
+
+/* 글꼴을 두껍게 설정 */
+
+/* add story */
+.feedImg {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    /* max-height: 80%;
+  min-height: 500px; */
+}
+
+.imgdelbutton {
+    cursor: pointer;
+    /* 커서 스타일을 포인터로 설정하여 버튼처럼 보이도록 함 */
+    /* 원하는 패딩을 설정하여 버튼 크기 조정 */
+    background-color: transparent;
+    /* 배경을 투명하게 설정 */
+    border: none;
+    /* 테두리 제거 */
+    font-weight: bold;
+    color: gray;
+    font-size: 1.0rem;
+    margin-bottom: auto;
+}
+
+.imgDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+    position: sticky;
+    top: 0;
+}
+
+.profile {
+    width: 100%;
+    background-color: black;
+    color: white;
+    min-height: 150px;
+}
+
+.userIDdiv {
+    justify-content: space-between;
+    display: flex;
+    height: 30%;
+    width: 100%;
+}
+
+.userInfodiv {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 100px;
+    height: 30%;
+}
+
+.userInfodiv>div {
+    flex: 1;
+    padding: 10px;
+    display: inline-block;
+    height: 100%;
+    text-align: center;
+}
+
+/* 첫 번째 열에 다른 스타일 적용 */
+.userInfodiv>div:first-child {
+    flex: 2;
+    color: white;
+    height: 100%;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-pic-big {
+    width: 3.3rem;
+    height: 3.3rem;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+
+.userContactdiv {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 30px;
+    height: 10%;
+    justify-content: center;
+}
+
+.userContactdiv>button {
+    background-color: rgb(58, 58, 58);
+    color: white;
+    border: none;
+    border-radius: 7px;
+    width: 40%;
+    margin: 0.15rem;
+}
+
+.userContactdiv>:last-child {
+    width: 8%;
+}
+
+.mr6 {
+    margin-right: 0.6rem;
+    margin-top: 0.2rem;
+}
+
+.userID {
+    margin-left: 0.3rem;
+    margin-top: 0.1rem;
+    font-style: bold;
+}
+
+.tabs {
+    width: 100%;
+    background-color: black;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+}
+
+.tabs>div {
+    width: 50%;
+    text-align: center;
+    padding: 0.3rem;
+    border-bottom: 1px solid black;
+    margin-bottom: 0.1rem;
+}
+
+.selectedTabs {
+    border-bottom: 1px solid white !important
+}
+
+.tabs.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+
+.photos {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1px;
+    padding: 1px;
+}
+
+.photo {
+    width: 100%;
+    height: 5rem;
+    background-color: #ccc;
+    display: flex;
+}
+
+/* 유저 검색css */
+.searchHeader {
+    width: 100%;
+    text-align: center;
+}
+
+.searchInput {
+    width: 90%;
+    background-color: grey;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    height: 1.2rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+}
+
+.searchInput::placeholder {
+    color: lightgray;
+}
+
+input.searchInput:focus {
+    width: 80%;
+    margin-right: 10%;
+    outline: none;
+    border: 0;
+}
+
+.searchedUserDiv {}
