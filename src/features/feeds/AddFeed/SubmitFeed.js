@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faSpinner} from "@fortawesome/free-solid-svg-icons"
 import useAuth from "../../../hooks/useAuth";
 import { useGetUserByIdQuery,useGetFollowsbyIdQuery } from "../../users/usersApiSlice";
 import { useAddNewFeedMutation } from "../../feeds/feedsApiSlice"
@@ -19,7 +21,7 @@ const SubmitFeed = ({
     const {userid, email} = useAuth();
     const {data:loggeduser, isError, isSuccess,isLoading} = useGetUserByIdQuery(userid);
     const {data:follows, isLoading:followLoading, isSuccess:followSuccess,refetch} = useGetFollowsbyIdQuery({userid})
-    const [addNewFeed,{isSuccess:addNewFeedSuccess, error:addNewFeederror}] = useAddNewFeedMutation();
+    const [addNewFeed,{isLoading:feedloading,isSuccess:addNewFeedSuccess, error:addNewFeederror}] = useAddNewFeedMutation();
 
     const contentchanged = (e)=>setContent(e.target.value)
     
@@ -134,7 +136,10 @@ const SubmitFeed = ({
       </div>
       <div className="Buttondiv">
         <button className="cancelButton" onClick={onCancel}>취소</button>
-        <button className="submitButton" onClick={onSubmit}>공유</button>
+        {feedloading
+        ?<FontAwesomeIcon className='cancelButton' spin icon={faSpinner}style={{color: "#ffffff"}}/>
+        :<button className="submitButton" onClick={onSubmit}>공유</button>
+        }
         </div>
     </div>
   );

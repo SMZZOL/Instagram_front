@@ -22,7 +22,10 @@ const Login = () => {
     console.log("왜no실행")
     navigate("/register")
   }
-  
+  const ontestClicked= ()=>{
+    setEmail("test12")
+    setPassword("test1234")
+  }
   useEffect(()=>{
     userRef.current.focus();
   },[])
@@ -74,7 +77,7 @@ const Login = () => {
           value={password}
           required/>
 
-          <button className="forget-button">비밀번호를 잊으셨나요?</button>
+          <button className="forget-button" onClick={ontestClicked}>테스트 계정으로 하시겠어요?</button>
           <button 
           className="login-button"
           onClick={onSubmit}>

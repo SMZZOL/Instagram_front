@@ -7,7 +7,7 @@ const StoryList = () => {
     <div className="StoryList">
         <Link to="/addstory" className="Story" id="Story1">
           <img src="/1.jpg" alt="프로필 사진" className="Story_img" />
-          <p className="Story_username">스토리 추가</p>
+          <p className="Story_username">스토리[구현중]</p>
         </Link>
         <Story/>
     </div>

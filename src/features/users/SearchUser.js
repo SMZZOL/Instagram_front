@@ -6,10 +6,18 @@ import User from './User'
 
 const SearchUser = () => {
     const [searchword, setSearchword]= useState("");
+    const recommend = {
+        user:[
+            {userid:"qwer"},
+            {userid:"koko3"},
+        ]
+    }
     const {data:users, isError, isSuccess,isLoading,refetch} = useSearchUserQuery({searchword});
     let content
     if(!searchword){
-        content=<></>
+        content=
+        <>
+        </>
     }
 
     if (isLoading) {content = <p>Loading...</p>}

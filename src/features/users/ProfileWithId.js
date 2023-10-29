@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faSquarePlus} from "@fortawesome/free-regular-svg-icons"
-import {faBars,faTableCells, faUserTag} from "@fortawesome/free-solid-svg-icons"
+import {faBars,faTableCells, faUserTag,faSpinner} from "@fortawesome/free-solid-svg-icons"
 import useAuth from '../../hooks/useAuth';
 import { useParams,useNavigate } from 'react-router-dom';
 import { useGetUserByIdQuery,useUpdateUserMutation } from './usersApiSlice';
@@ -10,22 +10,27 @@ import { useGetFeedsbyidQuery } from '../feeds/feedsApiSlice';
 const ProfileWithId = () => {
   const [isSticky, setIsSticky] = useState(false);
     const tabsRef = useRef(null);
-    const [cnt, setCnt] = useState(0);
     const [showeduser, setShowedUser] = useState();
     const [onSelect, setOnSelect] = useState(true);
     const [isLoggeduser, setIsLoggedUser]= useState(true)
     const {id} = useParams();
     const navigate = useNavigate();
-    const {userid, email} = useAuth();
-    const [isfollowing, setIsfollowing]= useState(true);
+    const {userid} = useAuth();
+    const [isfollowing, setIsfollowing]= useState(false);
     
     const {data:loggeduser, isError:loggedUsererror, isSuccess:loggedUserSuccess, refetch:refetchloggedUser} = useGetUserByIdQuery(userid);
     const {data:searcheduser, isError:searcheduserError, isSuccess:searcheduserSuccess, refetch:refetchsearchedUser} = useGetUserByIdQuery(id);
-    const {data:feeds, isLoading:feedloading, isError:feederror, isSuccess:feedSuccess, refetch} = useGetFeedsbyidQuery(id)
+    const {data:feeds, isLoading:feedloading, isError:feederror, isSuccess:feedSuccess} = useGetFeedsbyidQuery(id,{pollingInterval:20000})
 
     const [updateUser, {isSuccess:followingSuccess, isLoading:updateUserLoading}] = useUpdateUserMutation();
     
     let content;
+    let loading;
+
+    if(feedloading||updateUserLoading){
+      loading = loading = <FontAwesomeIcon className='mr6' size='2xl' spin icon={faSpinner}style={{color: "#ffffff", marginTop:"30%", marginLeft:"45%"}}/>
+    }
+  
 
     if(feedSuccess){
 
@@ -33,9 +38,6 @@ const ProfileWithId = () => {
   
     }
     
-    if(feedloading){
-      content = <p>Loading..</p>
-    }
 
     const checkedFollowing=async()=>{
         if(loggeduser.following.includes(searcheduser._id)){
@@ -173,6 +175,7 @@ const ProfileWithId = () => {
       <div className="photos">
           {content}
       </div>
+          {loading}
     </div>
   );
 };

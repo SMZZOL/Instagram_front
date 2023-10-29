@@ -9,7 +9,6 @@ const Feed = ({feed, _id, refetch}) => {
     const [isLiked , setIsliked] = useState(false)
 
     useEffect(()=>{
-        console.log(feed.likes)
         setIsliked(feed.likes.includes(_id))
     },[isLoading,isSuccess])
 
@@ -46,7 +45,7 @@ const Feed = ({feed, _id, refetch}) => {
 
             <div className="comments">
                 <div className="comment">
-                    <span className="username">smkoxox</span>  맞다
+                    {/* <span className="username">smkoxox</span>  맞다 */}
                 </div>
                 {/* <!-- 다른 댓글들을 추가할 수 있습니다. --> */}
             </div>
