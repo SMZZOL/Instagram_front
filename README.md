@@ -1,8 +1,8 @@
- ## I. **MERN Stack 을 활용한 Instagram Clone Coding**
+ ## I. **MERN Stack 을 활용한 Instagram Clone Coding-Frontend**
  
  ### 1. 개요
   - React, Redux 를 이요한 FrontEnd, Express 와 MongoDB 및 Mongoose를 활용한 백엔드. [작업중]
-  - 
+
  ### 2. 활용 기술
  <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white"> <img src="https://img.shields.io/badge/Redux-764ABC?style=for-the-badge&logo=redux&logoColor=white">
  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white"><br>
