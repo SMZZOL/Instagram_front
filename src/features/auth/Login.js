@@ -1,5 +1,7 @@
 import React,{useState, useEffect,useRef} from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faSpinner} from "@fortawesome/free-solid-svg-icons"
 
 import { useDispatch } from 'react-redux'
 import { setCredentials } from './authSlice'
@@ -78,11 +80,20 @@ const Login = () => {
           required/>
 
           <button className="forget-button" onClick={ontestClicked}>테스트 계정으로 하시겠어요?</button>
+          {isLoading
+          ?
+          <><br></br>
+          <FontAwesomeIcon className='mr6' size='2xl' spin icon={faSpinner}style={{color: "#ffffff", marginTop:"10%"}}/>
+          </>
+          :
           <button 
           className="login-button"
           onClick={onSubmit}>
             로그인
           </button>
+
+          }
+
         </div>
         <div className="AskDiv">
           계징이 없으신가요?
