@@ -6,11 +6,13 @@ import {
   faTableCells,
   faUserTag,
   faSpinner,
+  faRightFromBracket
 } from "@fortawesome/free-solid-svg-icons";
 import useAuth from "../../hooks/useAuth";
 import { useParams, useNavigate } from "react-router-dom";
 import { useGetUserByIdQuery } from "./usersApiSlice";
 import { useGetFeedsbyidQuery } from "../feeds/feedsApiSlice";
+import {useSendLogoutMutation} from "../auth/authApiSlice"
 
 const Profile = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -32,6 +34,16 @@ const Profile = () => {
     refetchOnFocus: true,
     refetchOnMountOrArgChange: true
   });
+
+  const [sendLogout, {
+    isLoading,
+    isSuccess,
+    isError,
+    error
+  }] = useSendLogoutMutation()
+  useEffect(() => {
+    if (isSuccess) navigate('/login')
+  }, [isSuccess, navigate])
   const {
     data: feeds,
     isLoading: feedloading,
@@ -100,15 +112,16 @@ const Profile = () => {
           <div className="userIDdiv">
             <p className="userID">{showeduser ? showeduser.userid : "..."}</p>
             <span>
-              <FontAwesomeIcon
+              {/* <FontAwesomeIcon
                 className="mr6"
                 icon={faSquarePlus}
                 style={{ color: "#ffffff" }}
-              />
+              /> */}
               <FontAwesomeIcon
                 className="mr6"
-                icon={faBars}
+                icon={faRightFromBracket}
                 style={{ color: "#ffffff" }}
+                onClick={sendLogout}
               />
             </span>
           </div>

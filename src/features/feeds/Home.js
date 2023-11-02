@@ -24,7 +24,6 @@ const Home = () => {
     loading = <FontAwesomeIcon className='mr6' size='2xl' spin icon={faSpinner}style={{color: "#ffffff", marginTop:"30%", marginLeft:"45%"}}/>
   }
   if (isSuccess) {
-    console.log(feeds)
     if (!feeds.length) {
       console.log("Empty?");
       content = (
@@ -34,7 +33,7 @@ const Home = () => {
       );
     }else{
       content = feeds.map((feed) => (
-        <Feed feed={feed} _id={_id} refetch={refetch} />
+        <Feed feed={feed} key={feed._id} _id={_id} refetch={refetch} />
       ));
     }
   }

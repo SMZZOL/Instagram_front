@@ -34,7 +34,7 @@ const ProfileWithId = () => {
 
     if(feedSuccess){
 
-      content = feeds.map((feed)=><img class="photo" src={feed.files[0].data}/>)
+      content = feeds.map((feed)=><img className="photo" src={feed.files[0].data}/>)
   
     }
     

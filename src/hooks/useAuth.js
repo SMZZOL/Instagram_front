@@ -14,6 +14,6 @@ const useAuth = () => {
         return { _id, userid, email }
     }
 
-    return { _id:'', userId: '',email:'' }
+    return { _id:null, userId: '',email:'' }
 }
 export default useAuth

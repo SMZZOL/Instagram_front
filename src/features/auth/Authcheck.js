@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import { selectCurrentToken } from "../../features/auth/authSlice"
+import useAuth from "../../hooks/useAuth"
 import { Outlet,useNavigate } from 'react-router-dom'
 
 const Authcheck = () => {
     const navigate = useNavigate();
-    const token = useSelector(selectCurrentToken)
+    const {_id} = useAuth()
     useEffect(()=>{
-        if(!token){navigate("/login")}
+        if(!_id){navigate("/login")}
     },[])
     
   return <Outlet/>
