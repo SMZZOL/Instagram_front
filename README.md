@@ -18,17 +18,24 @@
 
 ## 4. 내용
 
-### 다이어그램
-
-
-
+### 시퀀스 다이어그램 (회원가입)
 ![시퀀스_다이어그램(회원가입)](https://github.com/SMZZOL/Instagram_front/assets/103109967/56cb1463-49c1-4e21-bec3-4c4b45002558)
-
+<BR/>
+### 시퀀스 다이어그램 (로그인)
 ![시퀀스_다이어그램(로그인)](https://github.com/SMZZOL/Instagram_front/assets/103109967/310bac52-bf14-432e-96b1-1381e1ae48ed)
-
+<BR>
+### 시퀀스 다이어그램 (JWT인증)
 ![시퀀스_다이어그램(인증)](https://github.com/SMZZOL/Instagram_front/assets/103109967/d5289227-af21-4b81-94d4-51f0d31c2933)
-
+<BR>
+### 시퀀스 다이어그램 (홈_피드)
 ![시퀀스 다이어그램(홈_피드)](https://github.com/SMZZOL/Instagram_front/assets/103109967/2cc357a6-6da2-4499-a893-0b59a7bd3519)
+<BR>
+
+
+
+
+
+
 
 
 
