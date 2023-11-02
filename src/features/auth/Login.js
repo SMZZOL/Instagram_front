@@ -20,10 +20,6 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const toRegister =()=>{
-    console.log("왜no실행")
-    navigate("/register")
-  }
   const ontestClicked= ()=>{
     setEmail("test12")
     setPassword("test1234")
