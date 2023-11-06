@@ -21,8 +21,12 @@
 ### 빌드, 패키지 관리
  - npm
 ### 베포
- - 
+ - ONRender
+### 형상관리
+ - git
 ### 테스트
+- Postman, Thunderclient
+  - 베포과정
 
 
 
