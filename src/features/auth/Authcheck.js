@@ -6,7 +6,7 @@ const Authcheck = () => {
     const navigate = useNavigate();
     const {_id} = useAuth()
     useEffect(()=>{
-        if(!_id){navigate("/login")}
+      if(!_id){navigate("/login")}
     },[])
     
   return <Outlet/>

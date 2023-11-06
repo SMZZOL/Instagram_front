@@ -41,6 +41,7 @@ const Profile = () => {
     isError,
     error
   }] = useSendLogoutMutation()
+
   useEffect(() => {
     if (isSuccess) navigate('/login')
   }, [isSuccess, navigate])
@@ -78,7 +79,7 @@ const Profile = () => {
 
   if (feedSuccess) {
     content = feeds.map((feed) => (
-      <img className="photo" src={feed.files[0].data} />
+      <img className="photo" key={feed._id} src={feed.files[0].data} />
     ));
   }
 

@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { setCredentials } from '../../features/auth/authSlice'
-
+import { logOut } from "../../features/auth/authSlice"
 const baseQuery = fetchBaseQuery({
     //baseUrl: 'http://localhost:3500',
     baseUrl: 'https://instagram-back-sfek.onrender.com',
@@ -23,7 +23,6 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
 
     // If you want, handle other status codes, too
     if (result?.error?.status === 403) {
-        console.log('sending refresh token')
 
         // send refresh token to get new access token 
         const refreshResult = await baseQuery('/auth/refresh', api, extraOptions)
@@ -34,7 +33,8 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
             result = await baseQuery(args, api, extraOptions)
         } else {
             if (refreshResult?.error?.status === 403) {
-
+                alert("로그인 만료");
+                api.dispatch(logOut());
                 refreshResult.error.data.message = "로그인이 만료 되었습니다"
             }
             return refreshResult
