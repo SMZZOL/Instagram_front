@@ -17,7 +17,7 @@
 - MERN Stack 학습 기간 포함 3주간
 
 ## 4. 내용
-
+???
 ### 시퀀스 다이어그램 (회원가입)
 ![시퀀스_다이어그램(회원가입)](https://github.com/SMZZOL/Instagram_front/assets/103109967/56cb1463-49c1-4e21-bec3-4c4b45002558)
 <BR/>
