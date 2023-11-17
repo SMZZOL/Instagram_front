@@ -21,7 +21,13 @@
 ### 빌드, 패키지 관리
  - npm
 ### 베포
- - ONRender
+~~## V1 (Onrender)~~
+![Deploy_V1](https://github.com/SMZZOL/Instagram_front/assets/103109967/88a1d826-5050-4a20-9344-0ebb674542b9)
+## V2 (Docker+EC2+Compose) (Curr)
+![Deploy_V2](https://github.com/SMZZOL/Instagram_front/assets/103109967/37820a1b-8a52-4a7d-a169-28d28dee9278)
+## V3 (Docker+Kubernetes+RDS+Jenkins) (In progress)
+![Deploy_V3png](https://github.com/SMZZOL/Instagram_front/assets/103109967/1b334146-3824-4959-b76c-ab0d7c06f14f)
+
 ### 형상관리
  - git
 ### 테스트
